@@ -19,15 +19,13 @@ export default function Home() {
   const [filteredData, setFilteredData] = useState<WasteData[]>([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [loading, setLoading] = useState(false);
+
 
   const fetchAllData = async () => {
-    setLoading(true);
     const res = await fetch('http://localhost:3001/waste/all');
     const json = await res.json();
     setAllData(json);
     setFilteredData(json); // by default show all
-    setLoading(false);
   };
 
   const generateWasteData = async () => {
